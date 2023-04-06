@@ -14,10 +14,11 @@ app.use(bodyParser.json())
 
 // Configure open api
 const configuration = new Configuration({
-    organization: "org-4qYC8zhTh4Nn3fI6qMSDzx7W",
+    organization: "org-UUyL0pvmfqbrzBTZDlT9kP5K",
     apiKey: process.env.API_KEY // VISIT .env AND MAKE CHANGES
 })
 const openai = new OpenAIApi(configuration)
+
 
 
 // listeninng
@@ -39,7 +40,7 @@ app.post('/', async (req, res)=>{
             model: "gpt-3.5-turbo",
             prompt: `${message}`,
             max_tokens: 100,
-            temperature: .5
+            temperature: .7
         })
         res.json({message: response.data.choices[0].text})
 
