@@ -20,11 +20,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 
-
-// listeninng
-app.listen("3080", ()=>console.log("listening on port 3080"))
-
-
 // dummy route to test
 app.get("/", (req, res) => {
     res.send("Hello World!")
@@ -37,10 +32,10 @@ app.post('/', async (req, res)=>{
 
     try{
         const response = await openai.createCompletion({
-            model: "gpt-3.5-turbo",
+            model: "text-davinci-003",
             prompt: `${message}`,
             max_tokens: 100,
-            temperature: .7
+            temperature: .5
         })
         res.json({message: response.data.choices[0].text})
 
@@ -49,3 +44,7 @@ app.post('/', async (req, res)=>{
         res.send(e).status(400)
     }
 })
+
+
+// listeninng
+app.listen("3080", ()=>console.log("listening on port 3080"))
