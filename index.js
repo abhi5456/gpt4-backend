@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 // Configure open api
 const configuration = new Configuration({
-    organization: "org-UUyL0pvmfqbrzBTZDlT9kP5K",
+    organization: "org-4qYC8zhTh4Nn3fI6qMSDzx7W",
     apiKey: process.env.API_KEY // VISIT .env AND MAKE CHANGES
 })
 const openai = new OpenAIApi(configuration)
@@ -36,7 +36,7 @@ app.post('/', async (req, res)=>{
 
     try{
         const response = await openai.createCompletion({
-            model: "text-davinci-003",
+            model: "gpt-3.5-turbo",
             prompt: `${message}`,
             max_tokens: 100,
             temperature: .5
